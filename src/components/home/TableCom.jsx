@@ -22,17 +22,28 @@ const [editedVal,setEditedVal]=useState("USD")
 
 
 useEffect(()=>{
-  
-  axios.get('http://localhost:8081/crud/allcustomer')
-  .then(function (response) {
-    console.log(response.data);
-    setInvoice(response.data);
-  })
-  .catch(function (error) {
-    console.log(error);
-  })
+
+  fetchData();
+
 
   },[])
+
+
+const fetchData = async(pageNumber = 1) => {
+   console.log("page no",pageNumber);
+    axios.get('http://localhost:8081/crud/allcustomer'+'?page='+pageNumber)
+    .then(function (response) {
+      console.log(response.data);
+      setInvoice(response.data);
+    })
+    .catch(function (error) {
+      console.log(error);
+    })
+
+}
+
+
+  
 
 
 
@@ -141,36 +152,38 @@ invoice != null ?
       )):'loading..........'
 
 
-      
-      /* <TableRow>
-        <TableCell style={{color:"#ffffff"}}>
-            <input  type="checkbox" />
-          </TableCell>
-          {
-            /*
-            data.map(item=>
-              (
-              <TableCell align="right" style={{color:"#ffffff"}}>
-                  {item}
-              </TableCell>
-            )
-            )
+    }
 
-            <TableCell align="right" style={{color:"#ffffff"}}>
-            works
-        </TableCell>
-            
-              }
-        </TableRow> */}
 
-        
    
       
     </TableHead>
-    <Pagination  count={10} />
+
+
+    
+ 
 
     </Table>
+ 
     </TableContainer>
+
+  
+    <Pagination
+    
+    variant="outlined"
+    color="primary"
+    style={{fontSize:35,float:'right',width:'100%',color:"#ffffff"}}
+    activePage="1"
+    itemsCountPerPage="5"
+    totalItemsCount="5"
+  
+    onChange={(event, value) => {
+      console.log(value);
+      fetchData(value)
+  }}
+    count={2} />
+
+
     <EditButton openEdit={openEdit} setOpenEdit={setOpenEdit} val={val} setVal={setVal} setEditedVal={setEditedVal} data={data}/>
     </>
     )
