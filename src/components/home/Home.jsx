@@ -81,8 +81,8 @@ const Home = () => {
   return (
     <>
     <Box className={classes.container}>
-      <Typography style={{fontSize:35,float:'left',marginRight:'28%'}}>ABC Products</Typography>
-      <Typography style={{fontSize:35}}>highradius</Typography>
+      <Typography style={{fontSize:35,float:'left',marginRight:'28%'}}><img style={{fontSize:35 , height:'50px',marginTop:'15px'}}  src="abchrc.png" lt="ABC product"  /></Typography>
+      <Typography ><img style={{fontSize:35 , height:'50px',marginTop:'15px'}}  src="logohighradiuscolor.png" lt="BANNER"  /></Typography>
     </Box>
 
     <Box className={classes.component}>

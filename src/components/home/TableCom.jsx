@@ -4,7 +4,8 @@ import {Table,TableBody,TableCell,TableContainer,TableHead,TableRow} from '@mate
 import { Typography,Box, Button} from '@material-ui/core'
 import {makeStyles} from '@material-ui/styles'
 import EditButton from "./EditButton";
-import Pagination from "react-js-pagination";
+
+import Pagination from '@mui/material/Pagination';
 
 const useStyles=makeStyles({
 })
@@ -166,14 +167,7 @@ invoice != null ?
    
       
     </TableHead>
-
-    <Pagination
-      activePage={60}
-      itemsCountPerPage={10}
-      totalItemsCount={450}
-      pageRangeDisplayed={5}
-      onChange={40}
-        />
+    <Pagination  count={10} />
 
     </Table>
     </TableContainer>
